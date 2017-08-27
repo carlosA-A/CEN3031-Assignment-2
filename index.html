@@ -23,9 +23,12 @@
                 <th>Building Name</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter:query" ng-click="showDetails($index)">
-                <td>{{listing.code}}</td>
-                <td>{{listing.name}}</td>
+              <tr ng-repeat="listing in listings | filter:query" ng-show="!display">
+                <td ng-click="showDetails($index)">{{listing.code}}</td>
+                <td ng-click="showDetails($index)">{{listing.name}}</td>
+                <td><button type="button" class="close" aria-label="Close" ng-click="display=true">  
+                <span aria-hidden="true">&times;</span>
+                </button></td>
               </tr>
               <!-- 
 
@@ -41,6 +44,17 @@
               Write an HTML form that adds new listings to the directory 
 
             -->
+            <div >
+                <form novalidate class="form-horizontal" role="form" ng-submit="addListing()">
+                    Code:<br>
+                    <input type="text" ng-model="code"><br>
+                    Building Name:<br>
+                    <input type="text" ng-model="name">
+                    <br><br>
+                    <input type="submit" value="Submit" class="btn btn-primary"/>
+                  </form>
+            </div>
+            
         </div>
         <div class="col-md-6">
           <div class="jumbotron">

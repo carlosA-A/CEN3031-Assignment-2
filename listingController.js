@@ -2,14 +2,21 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
   function($scope, Listings) {
     $scope.listings = Listings;
     $scope.detailedInfo = undefined;
-    $scope.latitude = undefined;
-    $scope.longitude = undefined;
+    $scope.hide = true;
     /* 
       Implement these functions in the controller to make your application function 
       as described in the assignment spec. 
      */
-    $scope.addListing = function() {};
-    $scope.deleteListing = function(index) {};
+    $scope.addListing = function() {
+      var newListing = {
+        "code": $scope.code,
+        "name": $scope.name
+      }
+      $scope.listings.push(newListing);
+
+    };
+    $scope.deleteListing = function(index) {
+    };
     $scope.showDetails = function(index) {
 
       if($scope.listings[index].coordinates)
