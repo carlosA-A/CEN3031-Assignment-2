@@ -3,8 +3,11 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     $scope.listings = Listings;
     $scope.detailedInfo = undefined;
     $scope.hide = true;
-    $scope.latitude = 0;
-    $scope.longitude = 0;
+    // UF location set to be default
+    $scope.latitude = 29.643669;
+    $scope.longitude = -82.354988;
+    // Map zoom default value
+    $scope.zoom = 13;
     /* 
       Implement these functions in the controller to make your application function 
       as described in the assignment spec. 
@@ -26,14 +29,28 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
       {
         $scope.latitude = $scope.listings[index].coordinates.latitude;
         $scope.longitude = $scope.listings[index].coordinates.longitude;
-        $scope.initialize();
+        $scope.zoom = 18;
       }
+      //If building has no coordinates, set them to be the default UF one
+      else
+      {
+        $scope.latitude = 29.643669;
+        $scope.longitude = -82.354988;
+        $scope.zoom = 13;
+      }
+      $scope.initialize();
       $scope.detailedInfo = $scope.listings[index].name;
     };
     $scope.initialize = function() {
+      var myLatLng = {lat: $scope.latitude, lng: $scope.longitude};
+      
       var map = new google.maps.Map(document.getElementById('map_div'), {
-         center: {lat: $scope.latitude, lng: $scope.longitude},
-         zoom: 18
+         center: myLatLng,
+         zoom: $scope.zoom
+      });
+      var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
       });
    }    
    
