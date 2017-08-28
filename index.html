@@ -23,7 +23,7 @@
                 <th>Building Name</th>
                 <th></th>
               </tr>
-              <tr ng-repeat="listing in listings | filter:query" ng-show="!display">
+              <tr class="animate-show-hide" ng-repeat="listing in listings | filter:query" ng-show="!display">
                 <td ng-click="showDetails($index)">{{listing.code}}</td>
                 <td ng-click="showDetails($index)">{{listing.name}}</td>
                 <td><button type="button" class="close" aria-label="Close" ng-click="display=true">  
@@ -39,8 +39,7 @@
                   <div class="panel-heading" role="tab" id="headingOne">
                     <h4 class="panel-title">
                       <a role="button" data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" class="trigger collapsed">
-                          <i class="more-less glyphicon glyphicon-plus"></i>
-                          
+                          <i class="more-less glyphicon glyphicon-plus-sign"></i>
                         Add New Building
                       </a>
                     </h4>
@@ -86,6 +85,7 @@
     <script src="listingController.js"></script>
     <script src="listingFactory.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular-animate.js"></script>
     
   </body>
   

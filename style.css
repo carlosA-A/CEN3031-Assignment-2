@@ -14,3 +14,13 @@
  #map_div {
   height: 480px;
 }
+
+.animate-show-hide.ng-hide {
+  transform: translate3d(-100%, 0, 0);
+}
+
+
+.animate-show-hide.ng-hide-add {
+  opacity: 1;
+  transition: all linear 0.5s;
+}

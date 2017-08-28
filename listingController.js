@@ -2,7 +2,6 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
   function($scope, Listings) {
     $scope.listings = Listings;
     $scope.detailedInfo = undefined;
-    $scope.hide = true;
     // UF location set to be default
     $scope.latitude = 29.643669;
     $scope.longitude = -82.354988;
@@ -18,7 +17,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
         "code": $scope.code,
         "name": $scope.name
       }
-      $scope.listings.push(newListing);
+      // Add element to beginning of list to make it easily viewable
+      $scope.listings.unshift(newListing);
 
     };
     $scope.deleteListing = function(index) {
