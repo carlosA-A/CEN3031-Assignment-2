@@ -15,7 +15,12 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     $scope.addListing = function() {
       var newListing = {
         "code": $scope.code,
-        "name": $scope.name
+        "name": $scope.name,
+        "address":$scope.address,
+        "coordinates":{
+          "latitude":$scope.latitude,
+          "longitude":$scope.longitude,
+        }
       }
       // Add element to beginning of list to make it easily viewable
       $scope.listings.unshift(newListing);
