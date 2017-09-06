@@ -5,10 +5,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+      <nav class="navbar navbar-expand-md fixed-top row">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#"><span class="logo"><span class="logo-uf"> UF </span><span class="logo-line">|</span> <span class="logo-uf">Directory App</span></span></a>
+            </div>
+          </div>
+        </nav>
     <div class="container" ng-app="directoryApp">
-      <div class="row">
+      <!-- <div class="row">
         <h1>UF Directory App</h1>
-      </div>
+      </div> -->
+    
       <div class="row" ng-controller="ListingsController">
         <div class="col-md-6">
           <div class="input-group" id="searchBar">
@@ -64,7 +72,7 @@
 
         <div class="col-md-6">
           <div class="jumbotron">
-            <h2>{{detailedInfo}}</h2>
+            <p class="text-center details">{{detailedInfo}}</p>
             <!-- 
 
               Include a way to display detailed information about an individual listing:
