@@ -5,6 +5,8 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
     // UF location set to be default
     $scope.latitude = 29.643669;
     $scope.longitude = -82.354988;
+    $scope.lat = 29.643669;
+    $scope.long = -82.354988;
     // Map zoom default value
     $scope.zoom = 13;
     /* 
@@ -18,15 +20,13 @@ angular.module('listings').controller('ListingsController', ['$scope', 'Listings
         "name": $scope.name,
         "address":$scope.address,
         "coordinates":{
-          "latitude":$scope.latitude,
-          "longitude":$scope.longitude,
+          "latitude":$scope.lat,
+          "longitude":$scope.long,
         }
       }
       // Add element to beginning of list to make it easily viewable
       $scope.listings.unshift(newListing);
 
-    };
-    $scope.deleteListing = function(index) {
     };
     $scope.showDetails = function(index) {
 
